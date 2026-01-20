@@ -14,8 +14,8 @@ function App() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Leaf className="w-8 h-8 text-green-400" />
-            <span className="text-xl font-bold">NITRODUCK</span>
+            <img src="/images/nitroduck_5.png" alt="Nitroduck Logo" className="w-10 h-10" />
+            <span className="text-xl font-bold ml-2 mt-1" >NITRODUCK</span>
           </div>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
@@ -41,6 +41,7 @@ function App() {
                 pharmaceutical-grade Horseradish Peroxidase (HRP) with unmatched purity and sustainability.
                 No fermentation tanks. No complex infrastructure. Just clean, efficient, plant-based manufacturing.
               </p>
+              {/* 
               <div className="flex flex-wrap gap-4">
                 <button
                   onClick={() => document.getElementById('technology')?.scrollIntoView({ behavior: 'smooth' })}
@@ -51,6 +52,7 @@ function App() {
                   </span>
                 </button>
               </div>
+              */}
             </div>
           </div>
         </section>
@@ -64,10 +66,10 @@ function App() {
                 </div>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold font-spaceGrotesk mb-4">
-                iGEM Undergraduate Grand Prize Winner 2025
+                iGEM Overgraduate Grand Prize Winner 2025
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto font-urbanist">
-                Recognized globally for pioneering pure HRP enzyme production using genetically modified duckweed
+                Recognized globally for pioneering genetically modified duckweed
               </p>
             </div>
           </div>
@@ -188,9 +190,9 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex items-center gap-2">
-              <Leaf className="w-8 h-8 text-green-400" />
-              <span className="text-xl font-bold">NITRODUCK</span>
-            </div>
+            <img src="/images/nitroduck_5.png" alt="Nitroduck Logo" className="w-10 h-10" />
+            <span className="text-xl font-bold ml-2 mt-1" >NITRODUCK</span>
+          </div>
             <div className="flex gap-6">
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">
                 <Twitter className="w-6 h-6" />
@@ -204,7 +206,7 @@ function App() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500">
-            <p>&copy; 2025 Nitroduck Biomanufacturing. All rights reserved.</p>
+            <p>&copy; 2025 Nitroduck Inc. All rights reserved.</p>
           </div>
         </div>
       </footer>
