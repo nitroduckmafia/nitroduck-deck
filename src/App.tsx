@@ -136,8 +136,8 @@ function App() {
               </div>
               <div className="relative">
                 <div className="aspect-square bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-2xl flex items-center justify-center">
-                  <Leaf className="w-48 h-48 text-green-400 animate-pulse" />
-                </div>
+                  <img className='w-full h-full object-cover rounded-lg  object-cover ' src='images/duckweed-08409.jpg' />
+                </div>  
               </div>
             </div>
           </div>
