@@ -5,11 +5,11 @@ function App() {
 
   const members = [
 
-    { name: 'Matej Zámečník', role: 'CEO & Co-Founder', img: '/images/team/matej.jpg', email: 'zamecnik.matej13@gmail.com ', linkedin: 'https://www.linkedin.com/in/matejzamecnik/' },
-    { name: 'Matúš Grieš', role: 'Co-Founder', img: '/images/team/matus.jpg', email: 'matus.gries@gmail.com ', linkedin: 'https://www.linkedin.com/in/mat%C3%BA%C5%A1-grie%C5%A1-45b655202/' },
-    { name: 'Miroslav Rosputinsky', role: 'Co-Founder', img: '/images/team/miro.jpg', email: 'miro.rosputinsky@gmail.com ', linkedin: 'https://www.linkedin.com/in/miroslav-rosputinsk%C3%BD-23b759307/' },
-    { name: 'Pravoslav Žilka', role: 'Head of Upstream', img: '/images/team/pravoslav.jpg', email: 'pravoslav.zilka@gmail.com', linkedin: 'https://www.linkedin.com/in/pravoslav-zilka/' },
-    { name: 'Jonáš Pospíchal', role: 'Head of Downstream', img: '/images/team/jonas.jpg', email: 'jony.pospichal@gmail.com ', linkedin: 'https://www.linkedin.com/in/jon%C3%A1%C5%A1-posp%C3%ADchal-b7650a382/' },
+    { name: 'Matej Zámečník', role: 'CEO & Co-Founder', img: '/images/team/matej.jpg', email: 'matej@nitroduck.tech', linkedin: 'https://www.linkedin.com/in/matejzamecnik/' },
+    { name: 'Matúš Grieš', role: 'Co-Founder', img: '/images/team/matus.jpg', email: 'matus@nitroduck.tech', linkedin: 'https://www.linkedin.com/in/mat%C3%BA%C5%A1-grie%C5%A1-45b655202/' },
+    { name: 'Miroslav Rosputinsky', role: 'Co-Founder', img: '/images/team/miro.jpg', email: 'miroslav@nitroduck.tech', linkedin: 'https://www.linkedin.com/in/miroslav-rosputinsk%C3%BD-23b759307/' },
+    { name: 'Pravoslav Žilka', role: 'Head of Upstream', img: '/images/team/pravoslav.jpg', email: 'pravoslav@nitroduck.tech', linkedin: 'https://www.linkedin.com/in/pravoslav-zilka/' },
+    { name: 'Jonáš Pospíchal', role: 'Head of Downstream', img: '/images/team/jonas.jpg', email: 'jonas@nitroduck.tech', linkedin: 'https://www.linkedin.com/in/jon%C3%A1%C5%A1-posp%C3%ADchal-b7650a382/' },
   ]
 
   const [email, setEmail] = useState('');
