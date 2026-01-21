@@ -9,16 +9,59 @@ function App() {
     window.location.href = `mailto:info@nitroduck.bio?subject=Inquiry&body=${email}`;
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    setIsOpen(false); // close mobile menu after click
+  };
+
+  const scrollToTeam = () => {
+    document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' });
+    setIsOpen(false); // close mobile menu after click
+  };
+
+  const scrollToTechnology = () => {
+    document.getElementById('technology')?.scrollIntoView({ behavior: 'smooth' });
+    setIsOpen(false); // close mobile menu after click
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img src="/images/nitroduck_5.png" alt="Nitroduck Logo" className="w-10 h-10" />
-            <span className="text-xl font-bold ml-2 mt-1" >NITRODUCK</span>
-          </div>
+      
+
+    <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-gray-800">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Logo + Brand */}
+        <div className="flex items-center gap-2">
+          <img src="/images/nitroduck_5.png" alt="Nitroduck Logo" className="w-10 h-10" />
+          <span className="text-xl font-bold ml-2 mt-1">NITRODUCK</span>
+        </div>
+
+        {/* Desktop Buttons */}
+        <div className="hidden md:flex items-center gap-4">
           <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={scrollToContact}
+            className="group relative px-6 py-2 overflow-hidden rounded-full border border-white hover:border-green-400 transition-all duration-300"
+          >
+            <span className="relative z-10 flex items-center gap-2 group-hover:text-black transition-colors duration-300">
+              Technology <ArrowRight className="w-4 h-4" />
+            </span>
+            <div className="absolute inset-0 bg-green-400 transform scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full origin-center"></div>
+          </button>
+
+          <button
+            onClick={scrollToContact}
+            className="group relative px-6 py-2 overflow-hidden rounded-full border border-white hover:border-green-400 transition-all duration-300"
+          >
+            <span className="relative z-10 flex items-center gap-2 group-hover:text-black transition-colors duration-300">
+              Team <ArrowRight className="w-4 h-4" />
+            </span>
+            <div className="absolute inset-0 bg-green-400 transform scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full origin-center"></div>
+          </button>
+
+          <button
+            onClick={scrollToContact}
             className="group relative px-6 py-2 overflow-hidden rounded-full border border-white hover:border-green-400 transition-all duration-300"
           >
             <span className="relative z-10 flex items-center gap-2 group-hover:text-black transition-colors duration-300">
@@ -27,19 +70,80 @@ function App() {
             <div className="absolute inset-0 bg-green-400 transform scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full origin-center"></div>
           </button>
         </div>
-      </nav>
+
+        {/* Mobile Hamburger Button */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-white p-2 rounded-md hover:bg-gray-800/50 focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? (
+              // Close icon
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              // Hamburger icon
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? 'max-h-64 py-4 border-t border-gray-800' : 'max-h-0'
+        }`}
+      >
+        <div className="px-6 flex flex-col gap-4">
+          <button
+            onClick={scrollToContact}
+            className="group relative px-6 py-3 overflow-hidden rounded-full border border-white hover:border-green-400 transition-all duration-300 text-center"
+          >
+            <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-black transition-colors duration-300">
+              Technology <ArrowRight className="w-4 h-4" />
+            </span>
+            <div className="absolute inset-0 bg-green-400 transform scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full origin-center"></div>
+          </button>
+
+          <button
+            onClick={scrollToContact}
+            className="group relative px-6 py-3 overflow-hidden rounded-full border border-white hover:border-green-400 transition-all duration-300 text-center"
+          >
+            <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-black transition-colors duration-300">
+              Team <ArrowRight className="w-4 h-4" />
+            </span>
+            <div className="absolute inset-0 bg-green-400 transform scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full origin-center"></div>
+          </button>
+
+          <button
+            onClick={scrollToContact}
+            className="group relative px-6 py-3 overflow-hidden rounded-full border border-white hover:border-green-400 transition-all duration-300 text-center"
+          >
+            <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-black transition-colors duration-300">
+              Know More <ArrowRight className="w-4 h-4" />
+            </span>
+            <div className="absolute inset-0 bg-green-400 transform scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full origin-center"></div>
+          </button>
+        </div>
+      </div>
+    </div>
+
 
       <main>
         <section className="pt-32 pb-20 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl">
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-spaceGrotesk mb-8 leading-tight">
-                SUPER CLEAN <span className="text-green-400">HRP</span> FROM DUCKWEED
+                Making biomanufacturing of complex proteins  <span className="text-green-400">SCALABLE</span> 
               </h1>
               <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl leading-relaxed font-urbanist">
-                We're revolutionizing enzyme production. Nitroduck uses genetically modified duckweed to produce
-                pharmaceutical-grade Horseradish Peroxidase (HRP) with unmatched purity and sustainability.
-                No fermentation tanks. No complex infrastructure. Just clean, efficient, plant-based manufacturing.
+                Starting with better horseradish peroxidase (HRP), engineered just for YOUR stuff at the same cost as the native one…
+
               </p>
               {/* 
               <div className="flex flex-wrap gap-4">
@@ -62,14 +166,14 @@ function App() {
             <div className="bg-green-400/10 border border-green-400/30 rounded-2xl p-12 text-center">
               <div className="inline-block mb-6">
                 <div className="bg-green-400 text-black px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider">
-                  Award-Winning Innovation
+                  Powered by 
                 </div>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold font-spaceGrotesk mb-4">
-                iGEM Overgraduate Grand Prize Winner 2025
+                iGEM Grand Prize–winning plant-based technology 
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto font-urbanist">
-                Recognized globally for pioneering genetically modified duckweed
+                that maintains proper glycosylation and ensures a reliable supply of recombinant HRP
               </p>
             </div>
           </div>
@@ -143,22 +247,7 @@ function App() {
           </div>
         </section>
 
-        <section className="py-32 px-6 bg-gradient-to-b from-black to-gray-900">
-          <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-5xl md:text-6xl font-bold font-spaceGrotesk mb-12">
-              HRP Applications
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-              {['Diagnostics & ELISA', 'Research Applications', 'Immunoassays', 'Biotech Manufacturing'].map((app) => (
-                <div key={app} className="bg-black border border-gray-800 rounded-xl p-6 hover:border-green-400 transition-all duration-300">
-                  <p className="text-lg font-semibold font-urbanist">{app}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" className="py-32 px-6 bg-gray-900">
+        <section id="contact" className="py-32 px-6 px-6 bg-gradient-to-b from-black to-gray-900">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-5xl md:text-6xl font-bold font-spaceGrotesk mb-8">
               Get Pure <span className="text-green-400">HRP</span> Today
@@ -184,6 +273,23 @@ function App() {
             </form>
           </div>
         </section>
+
+        <section className="py-32  bg-gray-900">
+          <div className="max-w-7xl mx-auto text-center">
+            <h2 className="text-5xl md:text-6xl font-bold font-spaceGrotesk mb-12">
+              HRP Applications
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+              {['Diagnostics & ELISA', 'Research Applications', 'Immunoassays', 'Biotech Manufacturing'].map((app) => (
+                <div key={app} className="bg-black border border-gray-800 rounded-xl p-6 hover:border-green-400 transition-all duration-300">
+                  <p className="text-lg font-semibold font-urbanist">{app}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        
       </main>
 
       <footer className="bg-black border-t border-gray-800 py-12 px-6">
@@ -206,7 +312,7 @@ function App() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500">
-            <p>&copy; 2025 Nitroduck Inc. All rights reserved.</p>
+            <p>&copy; 2026 Nitroduck Inc. All rights reserved.</p>
           </div>
         </div>
       </footer>
