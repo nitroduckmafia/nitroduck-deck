@@ -37,7 +37,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white break-words">
       
 
     <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-gray-800">
@@ -257,23 +257,19 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="py-32 px-6 px-6 bg-gradient-to-b from-black to-gray-900">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-5xl md:text-6xl font-bold font-spaceGrotesk mb-8">
-              Get Pure <span className="text-green-400">HRP</span> Today
+        <section id="contact" className="py-32  bg-gradient-to-b from-black to-gray-900 ">
+          <div className="p-10 md:p-0 md:max-w-5xl mx-auto text-center">
+            <h2 className="text-4xl md:text-6xl font-bold font-spaceGrotesk mb-8">
+              Be among the first 21 companies to receive 1 g of engineered <span className="text-green-400">HRP</span>  
             </h2>
-            <p className="text-xl text-gray-400 mb-12 font-urbanist">
-              Ready to experience pharmaceutical-grade Horseradish Peroxidase at a fraction of the cost?
+             <h2 className="text-2xl md:text-4xl font-bold font-spaceGrotesk mt-8 mb-8">
+              tailored to your needs - <span className="text-green-400">free of charge</span>            </h2>
+            <p className="text-3xl text-gray-400 mb-12 font-urbanist">
+              
             </p>
+            {/* 
             <form onSubmit={handleContact} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-4 bg-black border border-gray-800 rounded-full focus:outline-none focus:border-green-400 transition-colors"
-                required
-              />
+              
               <button
                 type="submit"
                 className="px-8 py-4 bg-green-400 text-black font-semibold rounded-full hover:bg-green-300 transition-colors flex items-center justify-center gap-2"
@@ -281,11 +277,72 @@ function App() {
                 Contact Us <Mail className="w-5 h-5" />
               </button>
             </form>
+             */}     
+            <div className='flex flex-row gap-4 mt-16 justify-center text-2xl text-gray-300 font-urbanist'>
+              <div className=''>
+                  <p>Just tell us what would help your </p>
+              </div>
+              <div className='grid grid-cols-1 center-left gap-2 text-left'>
+
+                {["ELISA kits", "Western blots", "Immunohistochemistry", "Hydrogels", "Waste-water treatment"].map((item) => (
+                  
+                  
+                  <label
+                  className="
+                    block text-2xl font-bold font-spaceGrotesk
+                    bg-left-bottom bg-gradient-to-r 
+                    from-green-400 to-green-400 
+                    bg-[length:0%_3px] bg-no-repeat
+                    hover:bg-[length:100%_3px]
+                    transition-all duration-500 ease-out 
+                    pb-1 cursor-pointer
+                  " 
+                  key={Math.random()}>{item}</label>
+
+                ))}
+
+              </div>
+              
+            </div>  
+
+            <h2 className="text-2xl md:text-3xl font-bold font-spaceGrotesk mt-16">
+              Book a short, exploratory <a className="
+                     font-bold font-spaceGrotesk
+                    bg-left-bottom bg-gradient-to-r 
+                    from-green-400 to-green-400 
+                    bg-[length:0%_3px] bg-no-repeat
+                    hover:bg-[length:100%_3px]
+                    transition-all duration-500 ease-out 
+                    pb-1 cursor-pointer text-green-400
+                  ">call</a> today or <a className="
+                     font-bold font-spaceGrotesk
+                    bg-left-bottom bg-gradient-to-r 
+                    from-green-400 to-green-400 
+                    bg-[length:0%_3px] bg-no-repeat
+                    hover:bg-[length:100%_3px]
+                    transition-all duration-500 ease-out 
+                    pb-1 cursor-pointer text-green-400
+                  " href='mailto:info@nitroduck.tech'>write</a> us. 
+
+            </h2>  
+
+            <p className="text-4xl mt-24    mb-[-130px] font-urbanist">
+              Sincerly
+
+            </p>
+
           </div>
+          
+          
         </section>
 
-        <section id='team' className="py-32  bg-gray-900">
+
+        
+
+        <section id='team' className="py-32  bg-gray-900 ">
+          
           <div className="max-w-7xl mx-auto">
+            
             <h2 className="text-5xl ml-4 md:text-6xl font-bold font-spaceGrotesk mb-12">
               Duckweed Mafia
             </h2>
