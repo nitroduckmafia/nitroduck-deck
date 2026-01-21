@@ -148,7 +148,7 @@ function App() {
         <section className="pt-32 pb-20 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl">
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-spaceGrotesk mb-8 leading-tight">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-spaceGrotesk mb-8 leading-tight">
                 Making biomanufacturing of complex proteins  <span className="text-green-400">SCALABLE</span> 
               </h1>
               <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl leading-relaxed font-urbanist">
@@ -189,7 +189,7 @@ function App() {
           </div>
         </section>
 
-        <section id="technology" className="py-32 px-6 bg-gray-900">
+        <section id="technology" className="py-32 px-6 bg-gray-900 text-justify">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-5xl md:text-6xl font-bold font-spaceGrotesk mb-16 text-center">
               Why Duckweed for <span className="text-green-400">HRP</span>?
@@ -199,7 +199,7 @@ function App() {
                 <div className="rounded-lg flex items-center justify-center relative overflow-hidden w-full max-w-[350px] mx-auto h-75">
                   <img src="images/Picture3.png" className=" w-full h-full object-cover "/>
                 </div>
-                <p className="text-xl leading-relaxed font-urbanist mt-4 ">
+                <p className="text-xl leading-relaxed font-urbanist mt-8 ">
                   Duckweed, the smallest and fastest-growing higher plant, carries an HRP (single isoform VI) transgene engineered to your exact specifications.
                 </p>
               </div>
@@ -208,7 +208,7 @@ function App() {
                 <div className=" rounded-lg flex items-center justify-center relative overflow-hidden w-full max-w-[350px] mx-auto h-75">
                   <img src="images/Picture4.png" className=" w-full h-full object-cover "/>
                 </div>
-                <p className="text-xl leading-relaxed font-urbanist mt-4 ">
+                <p className="text-xl leading-relaxed font-urbanist mt-8 ">
                   Our autonomous cultivation system produces HRP-rich plant biomass from duckweed, which grows up to 100× faster than horseradish and is unaffected by outdoor environmental fluctuations.
                   </p>
               </div>
@@ -217,7 +217,7 @@ function App() {
                 <div className="rounded-lg flex items-center justify-center relative overflow-hidden w-full max-w-[350px] mx-auto h-75">
                   <img src="images/Picture5.png" className=" w-full h-full object-cover "/>
                 </div>
-                <p className="text-xl leading-relaxed font-urbanist mt-4 ">
+                <p className="text-xl leading-relaxed font-urbanist mt-8 ">
                   Secretion of HRP from duckweed biomass is induced, enabling streamlined downstream processing and resulting in clean (RZ 3), 100% single-isoform HRP (VI) at the same cost as the native enzyme.
                 </p>
               </div>
@@ -225,33 +225,9 @@ function App() {
           </div>
         </section>
 
-        <section className="py-32 px-6 bg-black">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div>
-                <h2 className="text-5xl md:text-6xl font-bold font-spaceGrotesk mb-8">
-                  Pure <span className="text-green-400">HRP</span> Engineering
-                </h2>
-                <p className="text-xl text-gray-400 mb-6 leading-relaxed font-urbanist">
-                  Our proprietary genetic engineering transforms duckweed into precision HRP factories.
-                  Each leaf becomes a bioreactor, producing enzyme with unmatched consistency and purity.
-                  The result? Horseradish Peroxidase so clean, it rivals the best laboratory synthesis methods.
-                </p>
-                <p className="text-xl text-gray-400 leading-relaxed font-urbanist">
-                  Whether you need HRP for diagnostics, research, or industrial applications—we deliver
-                  pharmaceutical-grade enzyme at a fraction of traditional costs.
-                </p>
-              </div>
-              <div className="relative">
-                <div className="aspect-square bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-2xl flex items-center justify-center">
-                  <img className='w-full h-full object-cover rounded-lg  object-cover ' src='images/duckweed-08409.jpg' />
-                </div>  
-              </div>
-            </div>
-          </div>
-        </section>
+        
 
-        <section id="contact" className="py-32  bg-gradient-to-b from-black to-gray-900 ">
+        <section id="contact" className="py-32  bg-gradient-to-b from-gray-900 to-black ">
           <div className="p-10 md:p-0 md:max-w-5xl mx-auto text-center">
             <h2 className="text-4xl md:text-6xl font-bold font-spaceGrotesk mb-8">
               Be among the first 21 companies to receive 1 g of engineered <span className="text-green-400">HRP</span>  
@@ -333,7 +309,7 @@ function App() {
 
         
 
-        <section id='team' className="py-32  bg-gray-900 ">
+        <section id='team' className="py-32  bg-black ">
           
           <div className="max-w-7xl mx-auto">
             
@@ -392,7 +368,7 @@ function App() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500">
-            <p>&copy; 2026 Nitroduck Inc. All rights reserved.</p>
+            <p>&copy; 2026 Nitroduck, Inc. All rights reserved. </p>
           </div>
         </div>
       </footer>
