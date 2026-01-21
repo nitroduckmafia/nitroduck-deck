@@ -2,6 +2,16 @@ import { ArrowRight, Leaf, Droplets, Zap, Mail, Linkedin, Twitter } from 'lucide
 import { useState } from 'react';
 
 function App() {
+
+  const members = [
+
+    { name: 'Matej Zámečník', role: 'CEO & Co-Founder', img: '/images/team/matej.jpg', email: 'zamecnik.matej13@gmail.com ', linkedin: 'https://www.linkedin.com/in/matejzamecnik/' },
+    { name: 'Matúš Grieš', role: 'Co-Founder', img: '/images/team/matus.jpg', email: 'matus.gries@gmail.com ', linkedin: 'https://www.linkedin.com/in/mat%C3%BA%C5%A1-grie%C5%A1-45b655202/' },
+    { name: 'Miroslav Rosputinsky', role: 'Co-Founder', img: '/images/team/miro.jpg', email: 'miro.rosputinsky@gmail.com ', linkedin: 'https://www.linkedin.com/in/miroslav-rosputinsk%C3%BD-23b759307/' },
+    { name: 'Pravoslav Žilka', role: 'Head of Upstream', img: '/images/team/pravoslav.jpg', email: 'pravoslav.zilka@gmail.com', linkedin: 'https://www.linkedin.com/in/pravoslav-zilka/' },
+    { name: 'Jonáš Pospíchal', role: 'Head of Downstream', img: '/images/team/jonas.jpg', email: 'jony.pospichal@gmail.com ', linkedin: 'https://www.linkedin.com/in/jon%C3%A1%C5%A1-posp%C3%ADchal-b7650a382/' },
+  ]
+
   const [email, setEmail] = useState('');
 
   const handleContact = (e: React.FormEvent) => {
@@ -41,7 +51,7 @@ function App() {
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center gap-4">
           <button
-            onClick={scrollToContact}
+            onClick={scrollToTechnology}
             className="group relative px-6 py-2 overflow-hidden rounded-full border border-white hover:border-green-400 transition-all duration-300"
           >
             <span className="relative z-10 flex items-center gap-2 group-hover:text-black transition-colors duration-300">
@@ -51,7 +61,7 @@ function App() {
           </button>
 
           <button
-            onClick={scrollToContact}
+            onClick={scrollToTeam}
             className="group relative px-6 py-2 overflow-hidden rounded-full border border-white hover:border-green-400 transition-all duration-300"
           >
             <span className="relative z-10 flex items-center gap-2 group-hover:text-black transition-colors duration-300">
@@ -101,7 +111,7 @@ function App() {
       >
         <div className="px-6 flex flex-col gap-4">
           <button
-            onClick={scrollToContact}
+            onClick={scrollToTechnology}
             className="group relative px-6 py-3 overflow-hidden rounded-full border border-white hover:border-green-400 transition-all duration-300 text-center"
           >
             <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-black transition-colors duration-300">
@@ -111,7 +121,7 @@ function App() {
           </button>
 
           <button
-            onClick={scrollToContact}
+            onClick={scrollToTeam}
             className="group relative px-6 py-3 overflow-hidden rounded-full border border-white hover:border-green-400 transition-all duration-300 text-center"
           >
             <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-black transition-colors duration-300">
@@ -274,15 +284,34 @@ function App() {
           </div>
         </section>
 
-        <section className="py-32  bg-gray-900">
-          <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-5xl md:text-6xl font-bold font-spaceGrotesk mb-12">
-              HRP Applications
+        <section id='team' className="py-32  bg-gray-900">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-5xl ml-4 md:text-6xl font-bold font-spaceGrotesk mb-12">
+              Duckweed Mafia
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-              {['Diagnostics & ELISA', 'Research Applications', 'Immunoassays', 'Biotech Manufacturing'].map((app) => (
-                <div key={app} className="bg-black border border-gray-800 rounded-xl p-6 hover:border-green-400 transition-all duration-300">
-                  <p className="text-lg font-semibold font-urbanist">{app}</p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-3 mt-12 items-center justify-center">
+                {members.map((member) => (
+                <div key={member.name} className="rounded-xl  p-6 hover:border-green-400 transition-all duration-300">
+                  <div className="w-52 h-52 rounded-lg flex items-center justify-center relative"
+                                          >
+                  <img src={member.img} alt={member.name} className="w-full h-full object-cover rounded-lg object-cover object-top" />
+                  </div>
+                  <p className="text-lg mt-4 font-semibold font-urbanist">{member.name}</p>
+                  <p>{member.role}</p>
+                  
+                  <div className='flex flex-row gap-4 mt-4'>
+                  
+                  <a href={`mailto:${member.email}`} className="hover:text-green-400 transition-colors">
+                    <Mail className="w-6 h-6" />
+                  </a>
+                  
+                  <a href={`${member.linkedin}`} target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">
+                  <Linkedin className="w-6 h-6" />
+                  </a>
+                  
+
+                  </div>
+
                 </div>
               ))}
             </div>
