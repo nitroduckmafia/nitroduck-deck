@@ -194,37 +194,31 @@ function App() {
             <h2 className="text-5xl md:text-6xl font-bold font-spaceGrotesk mb-16 text-center">
               Why Duckweed for <span className="text-green-400">HRP</span>?
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-black border border-gray-800 rounded-2xl p-8 hover:border-green-400 transition-all duration-300">
-                <div className="w-16 h-16 bg-green-400/20 rounded-full flex items-center justify-center mb-6">
-                  <Zap className="w-8 h-8 text-green-400" />
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className=" rounded-2xl p-8 hover:border-green-400 transition-all duration-300">
+                <div className="rounded-lg flex items-center justify-center relative overflow-hidden w-full max-w-[350px] mx-auto h-75">
+                  <img src="images/Picture3.png" className=" w-full h-full object-cover "/>
                 </div>
-                <h3 className="text-2xl font-bold font-spaceGrotesk mb-4">Ultra-Fast Production</h3>
-                <p className="text-gray-400 leading-relaxed font-urbanist">
-                  Duckweed doubles its biomass every 48 hours. Our engineered strains express high levels of pure HRP
-                  in record time, dramatically reducing time-to-market for enzyme applications.
+                <p className="text-xl leading-relaxed font-urbanist mt-4 ">
+                  Duckweed, the smallest and fastest-growing higher plant, carries an HRP (single isoform VI) transgene engineered to your exact specifications.
                 </p>
               </div>
 
-              <div className="bg-black border border-gray-800 rounded-2xl p-8 hover:border-green-400 transition-all duration-300">
-                <div className="w-16 h-16 bg-green-400/20 rounded-full flex items-center justify-center mb-6">
-                  <Droplets className="w-8 h-8 text-green-400" />
+              <div className="rounded-2xl p-8 hover:border-green-400 transition-all duration-300">
+                <div className=" rounded-lg flex items-center justify-center relative overflow-hidden w-full max-w-[350px] mx-auto h-75">
+                  <img src="images/Picture4.png" className=" w-full h-full object-cover "/>
                 </div>
-                <h3 className="text-2xl font-bold font-spaceGrotesk mb-4">Pharmaceutical Grade</h3>
-                <p className="text-gray-400 leading-relaxed font-urbanist">
-                  Plant-based HRP avoids bacterial contamination and endotoxin issues. Our purification process
-                  yields enzyme of exceptional purity, exceeding industry standards for diagnostic and research applications.
-                </p>
+                <p className="text-xl leading-relaxed font-urbanist mt-4 ">
+                  Our autonomous cultivation system produces HRP-rich plant biomass from duckweed, which grows up to 100× faster than horseradish and is unaffected by outdoor environmental fluctuations.
+                  </p>
               </div>
 
-              <div className="bg-black border border-gray-800 rounded-2xl p-8 hover:border-green-400 transition-all duration-300">
-                <div className="w-16 h-16 bg-green-400/20 rounded-full flex items-center justify-center mb-6">
-                  <Leaf className="w-8 h-8 text-green-400" />
+              <div className=" rounded-2xl p-8 hover:border-green-400 transition-all duration-300">
+                <div className="rounded-lg flex items-center justify-center relative overflow-hidden w-full max-w-[350px] mx-auto h-75">
+                  <img src="images/Picture5.png" className=" w-full h-full object-cover "/>
                 </div>
-                <h3 className="text-2xl font-bold font-spaceGrotesk mb-4">Dramatically Cheaper</h3>
-                <p className="text-gray-400 leading-relaxed font-urbanist">
-                  Traditional HRP production in cell fermentation costs thousands per liter. Our duckweed-based system
-                  reduces costs by up to 80%, making premium-quality HRP accessible to researchers worldwide.
+                <p className="text-xl leading-relaxed font-urbanist mt-4 ">
+                  Secretion of HRP from duckweed biomass is induced, enabling streamlined downstream processing and resulting in clean (RZ 3), 100% single-isoform HRP (VI) at the same cost as the native enzyme.
                 </p>
               </div>
             </div>
