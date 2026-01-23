@@ -7,9 +7,9 @@ function App() {
 
   const members = [
 
-    { name: 'Matej Zámečník', role: 'CEO & Co-Founder', img: '/images/team/matej.jpg', email: 'matej@nitroduck.tech', linkedin: 'https://www.linkedin.com/in/matejzamecnik/' },
+    { name: 'Matej Zámečník', role: 'Co-Founder & CEO', img: '/images/team/matej.jpg', email: 'matej@nitroduck.tech', linkedin: 'https://www.linkedin.com/in/matejzamecnik/' },
     { name: 'Matúš Grieš', role: 'Co-Founder', img: '/images/team/matus.jpg', email: 'matus@nitroduck.tech', linkedin: 'https://www.linkedin.com/in/mat%C3%BA%C5%A1-grie%C5%A1-45b655202/' },
-    { name: 'Miroslav Rosputinsky', role: 'Co-Founder', img: '/images/team/miro.jpg', email: 'miroslav@nitroduck.tech', linkedin: 'https://www.linkedin.com/in/miroslav-rosputinsk%C3%BD-23b759307/' },
+    { name: 'Miroslav Rosputinsky', role: 'Co-Founder', img: '/images/team/miro.jpg', email: 'miro@nitroduck.tech', linkedin: 'https://www.linkedin.com/in/miroslav-rosputinsk%C3%BD-23b759307/' },
     { name: 'Pravoslav Žilka', role: 'Head of Upstream', img: '/images/team/pravoslav.jpg', email: 'pravoslav@nitroduck.tech', linkedin: 'https://www.linkedin.com/in/pravoslav-zilka/' },
     { name: 'Jonáš Pospíchal', role: 'Head of Downstream', img: '/images/team/jonas.jpg', email: 'jonas@nitroduck.tech', linkedin: 'https://www.linkedin.com/in/jon%C3%A1%C5%A1-posp%C3%ADchal-b7650a382/' },
   ]
@@ -18,7 +18,7 @@ function App() {
 
   const handleContact = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = `mailto:info@nitroduck.bio?subject=Inquiry&body=${email}`;
+    window.location.href = `mailto:mafia@nitroduck.bio?subject=Inquiry&body=${email}`;
   };
 
   const [isOpen, setIsOpen] = useState(false);
@@ -210,20 +210,34 @@ function App() {
                 </div>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold font-spaceGrotesk mb-4">
-                iGEM Grand Prize–winning plant-based technology 
+               <a
+                href="https://competition.igem.org/results/2025"
+                target="_blank"
+                className="
+                  font-bold font-spaceGrotesk
+                  relative
+                  pb-1
+                  after:content-['']
+                  after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0
+                  after:w-0 after:h-[3px] after:bg-green-400
+                  after:transition-all after:duration-500 after:ease-out
+                  hover:after:w-full
+                  cursor-pointer
+                "
+              >
+                iGEM Grand Prize–winning plant-based technology
+              </a>
               </h2>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto font-urbanist">
+              <p className="text-xl text-gray-400 max-w-4xl mx-auto font-urbanist mt-8">
                 that maintains proper glycosylation and ensures a reliable supply of recombinant HRP
               </p>
             </div>
           </div>
         </section>
 
-        <section id="technology" className="py-32 px-6 bg-gray-900 text-justify">
+        <section id="technology" className="py-10 px-6 bg-gray-900 text-justify">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-5xl md:text-6xl font-bold font-spaceGrotesk mb-16 text-center">
-              Why Duckweed for <span className="text-green-400">HRP</span>?
-            </h2>
+            
             <div className="grid md:grid-cols-3 gap-4">
               <div className=" rounded-2xl p-8 hover:border-green-400 transition-all duration-300">
                 <div className="rounded-lg flex items-center justify-center relative overflow-hidden w-full max-w-[350px] mx-auto h-75">
@@ -232,6 +246,16 @@ function App() {
                 <p className="text-xl leading-relaxed font-urbanist mt-8 ">
                   Duckweed, the smallest and fastest-growing higher plant, carries an HRP (single isoform VI) transgene engineered to your exact specifications.
                 </p>
+                <div className="mt-4">
+                  <span className='flex flex-row items-center gap-4'>
+                    <img src="images/icons/icon1.webp" className="h-14 mt-4 object-contain "/>
+                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>PRXC1A transgene from horseradish </label>
+                  </span>
+                  <span className='flex flex-row items-center gap-4'>
+                    <img src="images/icons/icon2.webp" className="h-12 ml-1 mt-4 object-contain "/>
+                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>Customizable to meet your expectations </label>
+                  </span>
+                </div>
               </div>
 
               <div className="rounded-2xl p-8 hover:border-green-400 transition-all duration-300">
@@ -241,6 +265,18 @@ function App() {
                 <p className="text-xl leading-relaxed font-urbanist mt-8 ">
                   Our autonomous cultivation system produces HRP-rich plant biomass from duckweed, which grows up to 100× faster than horseradish and is unaffected by outdoor environmental fluctuations.
                   </p>
+
+                  <div className="mt-4">
+                  <span className='flex flex-row items-center gap-4'>
+                    <img src="images/icons/icon3.webp" className="h-14 mt-4 object-contain "/>
+                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>100x faster accumulation of biomass </label>
+                  </span>
+                  <span className='flex flex-row items-center gap-4'>
+                    <img src="images/icons/icon4.webp" className="h-12 ml-1 mt-4 object-contain "/>
+                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>Unaffected by outdoor fluctuations </label>
+                  </span>
+
+                </div>
               </div>
 
               <div className=" rounded-2xl p-8 hover:border-green-400 transition-all duration-300">
@@ -250,6 +286,17 @@ function App() {
                 <p className="text-xl leading-relaxed font-urbanist mt-8 ">
                   Secretion of HRP from duckweed biomass is induced, enabling streamlined downstream processing and resulting in clean (RZ 3), 100% single-isoform HRP (VI) at the same cost as the native enzyme.
                 </p>
+
+                <div className="mt-4">
+                  <span className='flex flex-row items-center gap-4'>
+                    <img src="images/icons/icon5.webp" className="h-14 mt-4 object-contain "/>
+                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>100% single isoform at &gt;RZ 3 purity </label>
+                  </span>
+                  <span className='flex flex-row items-center gap-4'>
+                    <img src="images/icons/Vector.svg" className="h-10 ml-1 mt-4 object-contain "/>
+                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>At the same cost as native HRP </label>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -386,13 +433,11 @@ function App() {
             <span className="text-xl font-bold ml-2 mt-1" >NITRODUCK</span>
           </div>
             <div className="flex gap-6">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">
-                <Twitter className="w-6 h-6" />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">
+              
+              <a href="https://www.linkedin.com/company/nitroduck-tech/" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">
                 <Linkedin className="w-6 h-6" />
               </a>
-              <a href="mailto:info@nitroduck.bio" className="hover:text-green-400 transition-colors">
+              <a href="mailto:mafia@nitroduck.bio" className="hover:text-green-400 transition-colors">
                 <Mail className="w-6 h-6" />
               </a>
             </div>
