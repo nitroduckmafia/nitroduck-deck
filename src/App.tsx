@@ -1,6 +1,7 @@
-import { ArrowRight, Leaf, Droplets, Zap, Mail, Linkedin, Twitter } from 'lucide-react';
+import { ArrowRight, Leaf, Droplets, Zap, Mail, Linkedin, Phone} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import HeroText from './components/main_page/HeroText';
+import HeroText2 from './components/main_page/HeroText2';
 
 
 function App() {
@@ -244,8 +245,7 @@ function App() {
                   <img src="images/Picture3.png" className=" w-full h-full object-cover "/>
                 </div>
                 <p className="text-xl leading-relaxed font-urbanist mt-8 ">
-                  Duckweed, the smallest and fastest-growing higher plant, carries an HRP (single isoform VI) transgene engineered to your exact specifications.
-                </p>
+                    Duckweed, the smallest and fastest-growing higher plant, carries an HRP (single isoform VI) transgene engineered to your exact specifications (<a href='https://pubmed.ncbi.nlm.nih.gov/11505379/' target='_blank' className='text-green-400'>better thermal stability</a>, <a href='https://pubmed.ncbi.nlm.nih.gov/10835112/' target='_blank' className='text-green-400'>catalytic activity</a> or <a href='https://pubmed.ncbi.nlm.nih.gov/17482746/' target='_blank' className='text-green-400'>H202 tolerance</a>).                </p>
                 <div className="mt-4">
                   <span className='flex flex-row items-center gap-4'>
                     <img src="images/icons/icon1.webp" className="h-14 mt-4 object-contain "/>
@@ -305,7 +305,7 @@ function App() {
         
 
         <section id="contact" className="py-32  bg-gradient-to-b from-gray-900 to-black ">
-          <div className="p-10 md:p-0 md:max-w-5xl mx-auto text-center">
+          <div className="p-2 md:p-0 md:max-w-5xl mx-auto text-center">
             <h2 className="text-4xl md:text-6xl font-bold font-spaceGrotesk mb-8">
               Be among the first 21 companies to receive 1 g of engineered <span className="text-green-400">HRP</span>  
             </h2>
@@ -314,41 +314,10 @@ function App() {
             <p className="text-3xl text-gray-400 mb-12 font-urbanist">
               
             </p>
-            {/* 
-            <form onSubmit={handleContact} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-              
-              <button
-                type="submit"
-                className="px-8 py-4 bg-green-400 text-black font-semibold rounded-full hover:bg-green-300 transition-colors flex items-center justify-center gap-2"
-              >
-                Contact Us <Mail className="w-5 h-5" />
-              </button>
-            </form>
-             */}     
+                
             <div className='flex flex-row gap-4 mt-16 justify-center text-2xl text-gray-300 font-urbanist'>
-              <div className=''>
-                  <p>Just tell us what would help your </p>
-              </div>
-              <div className='grid grid-cols-1 center-left gap-2 text-left'>
-
-                {["ELISA kits", "Western blots", "Immunohistochemistry", "Hydrogels", "Waste-water treatment"].map((item) => (
-                  
-                  
-                  <label
-                  className="
-                    block text-2xl font-bold font-spaceGrotesk
-                    bg-left-bottom bg-gradient-to-r 
-                    from-green-400 to-green-400 
-                    bg-[length:0%_3px] bg-no-repeat
-                    hover:bg-[length:100%_3px]
-                    transition-all duration-500 ease-out 
-                    pb-1 cursor-pointer
-                  " 
-                  key={Math.random()}>{item}</label>
-
-                ))}
-
-              </div>
+            
+              <HeroText2  />
               
             </div>  
 
@@ -372,11 +341,27 @@ function App() {
                   " href='mailto:info@nitroduck.tech'>write</a> us. 
 
             </h2>  
+            <div className='flex gap-8 items-center justify-center mt-16'>
+              <a
+                  href="https://calendar.app.google/CjpUdYyybvT1xaFy6"
+                  target='_blank'
+                
+                  className="px-4 py-3  bg-green-400 text-black text-xl font-semibold rounded-full hover:bg-green-300 transition-colors flex items-center justify-center gap-2"
+                >
+                  Book a call<Phone className="w-5 h-5" />
+                </a>
+                <a
+                  href="mailto:mafia@nitroduck.tech"
+                  target='_blank'
+                  
+                  className="px-4 py-3  bg-green-400 text-black text-xl font-semibold rounded-full hover:bg-green-300 transition-colors flex items-center justify-center gap-2"
+                >
+                  Write us <Mail className="w-5 h-5" />
+                </a>
 
-            <p className="text-4xl mt-24    mb-[-130px] font-urbanist">
-              Sincerly
+              </div>  
 
-            </p>
+            
 
           </div>
           
@@ -386,11 +371,16 @@ function App() {
 
         
 
-        <section id='team' className="py-32  bg-black ">
+        <section id='team' className="   bg-black ">
           
-          <div className="max-w-7xl mx-auto">
+          
+          <div className="max-w-7xl mx-auto pb-16">
+            <p className="text-3xl md:text-4xl mt-24   ml-4 mb-12 font-urbanist">
+              Sincerely
+
+            </p>
             
-            <h2 className="text-5xl ml-4 md:text-6xl font-bold font-spaceGrotesk mb-12">
+            <h2 className="text-4xl md:text-5xl ml-4 md:text-6xl font-bold font-spaceGrotesk mb-12">
               Duckweed Mafia
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-3 mt-12 items-center justify-center">
