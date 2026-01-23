@@ -1,5 +1,7 @@
 import { ArrowRight, Leaf, Droplets, Zap, Mail, Linkedin, Twitter } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import HeroText from './components/main_page/HeroText';
+
 
 function App() {
 
@@ -35,6 +37,34 @@ function App() {
     document.getElementById('technology')?.scrollIntoView({ behavior: 'smooth' });
     setIsOpen(false); // close mobile menu after click
   };
+
+  const words = [
+  "ELISA kits",
+  "Western blots",
+  "immunohistochemistry",
+  "hydrogels",
+  "waste-water treatment",
+] as const;
+
+ 
+  const [index, setIndex] = useState(0);
+  const [fading, setFading] = useState(false);
+  const currentWord = index === -1 ? "stuff" : words[index];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFading(true);
+
+      const timeout = setTimeout(() => {
+        setIndex((prev) => (prev + 1) % words.length);
+        setFading(false);
+      }, 500); // match transition duration
+
+      return () => clearTimeout(timeout);
+    }, 2200); // slightly longer than transition + pause
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white break-words">
@@ -147,14 +177,14 @@ function App() {
       <main>
         <section className="pt-32 pb-20 px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-4xl">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-spaceGrotesk mb-8 leading-tight">
+            <div className="max-w-5xl">
+              <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold font-spaceGrotesk mb-8 leading-tight">
                 Making biomanufacturing of complex proteins  <span className="text-green-400">SCALABLE</span> 
               </h1>
-              <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl leading-relaxed font-urbanist">
-                Starting with better horseradish peroxidase (HRP), engineered just for YOUR stuff at the same cost as the native one…
-
+              <p className="text-2xl md:text-3xl md:text-4xl text-gray-400 mb-4 max-w-4xl leading-relaxed font-urbanist">
+                Starting with better <b className="text-white">horseradish peroxidase (HRP)</b>
               </p>
+              <HeroText />
               {/* 
               <div className="flex flex-wrap gap-4">
                 <button
