@@ -305,9 +305,9 @@ function App() {
         
 
         <section id="contact" className="py-32  bg-gradient-to-b from-gray-900 to-black ">
-          <div className="p-2 md:p-0 md:max-w-5xl mx-auto text-center">
+          <div className="p-2 md:p-0 md:max-w-6xl mx-auto text-center">
             <h2 className="text-4xl md:text-6xl font-bold font-spaceGrotesk mb-8">
-              Be among the first 21 companies to receive 1 g of engineered <span className="text-green-400">HRP</span>  
+              Be among the first 21 companies to receive 100 000 U of engineered <span className="text-green-400">HRP</span>  
             </h2>
              <h2 className="text-2xl md:text-4xl font-bold font-spaceGrotesk mt-8 mb-8">
               tailored to your needs - <span className="text-green-400">free of charge</span>            </h2>
