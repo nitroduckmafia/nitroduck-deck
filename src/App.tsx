@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import HeroText from './components/main_page/HeroText';
 import HeroText2 from './components/main_page/HeroText2';
 import HeroTextMobile from './components/main_page/HeroTextMobile';
+import ContactSection from './components/main_page/ContactSection';
 
 
 function App() {
@@ -309,71 +310,8 @@ function App() {
           </div>
         </section>
 
-        
 
-        <section id="contact" className="py-32  bg-gradient-to-b from-gray-900 to-black ">
-          <div className="p-2 md:p-0 md:max-w-6xl mx-auto text-center">
-            <h2 className="text-4xl md:text-6xl font-bold font-spaceGrotesk mb-8">
-              Be among the first 21 companies to receive 100 000 U of engineered <span className="text-green-400">HRP</span>  
-            </h2>
-             <h2 className="text-2xl md:text-4xl font-bold font-spaceGrotesk mt-8 mb-8">
-              tailored to your needs - <span className="text-green-400">free of charge</span>            </h2>
-            <p className="text-3xl text-gray-400 mb-12 font-urbanist">
-              
-            </p>
-                
-            <div className='flex flex-row gap-4 mt-16 justify-center text-2xl text-gray-300 font-urbanist'>
-            
-              <HeroText2  />
-              
-            </div>  
-
-            <h2 className="text-2xl md:text-3xl font-bold font-spaceGrotesk mt-16">
-              Book a short, exploratory <a className="
-                     font-bold font-spaceGrotesk
-                    bg-left-bottom bg-gradient-to-r 
-                    from-green-400 to-green-400 
-                    bg-[length:0%_3px] bg-no-repeat
-                    hover:bg-[length:100%_3px]
-                    transition-all duration-500 ease-out 
-                    pb-1 cursor-pointer text-green-400
-                  ">call</a> today or <a className="
-                     font-bold font-spaceGrotesk
-                    bg-left-bottom bg-gradient-to-r 
-                    from-green-400 to-green-400 
-                    bg-[length:0%_3px] bg-no-repeat
-                    hover:bg-[length:100%_3px]
-                    transition-all duration-500 ease-out 
-                    pb-1 cursor-pointer text-green-400
-                  " href='mailto:info@nitroduck.tech'>write</a> us. 
-
-            </h2>  
-            <div className='flex gap-8 items-center justify-center mt-16'>
-              <a
-                  href="https://calendar.app.google/CjpUdYyybvT1xaFy6"
-                  target='_blank'
-                
-                  className="px-4 py-3  bg-green-400 text-black text-xl font-semibold rounded-full hover:bg-green-300 transition-colors flex items-center justify-center gap-2"
-                >
-                  Book a call<Phone className="w-5 h-5" />
-                </a>
-                <a
-                  href="mailto:mafia@nitroduck.tech"
-                  target='_blank'
-                  
-                  className="px-4 py-3  bg-green-400 text-black text-xl font-semibold rounded-full hover:bg-green-300 transition-colors flex items-center justify-center gap-2"
-                >
-                  Write us <Mail className="w-5 h-5" />
-                </a>
-
-              </div>  
-
-            
-
-          </div>
-          
-          
-        </section>
+         <ContactSection />       
 
 
         
