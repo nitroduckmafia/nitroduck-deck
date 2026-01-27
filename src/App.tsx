@@ -2,6 +2,7 @@ import { ArrowRight, Leaf, Droplets, Zap, Mail, Linkedin, Phone} from 'lucide-re
 import { useEffect, useState } from 'react';
 import HeroText from './components/main_page/HeroText';
 import HeroText2 from './components/main_page/HeroText2';
+import HeroTextMobile from './components/main_page/HeroTextMobile';
 
 
 function App() {
@@ -178,14 +179,20 @@ function App() {
       <main>
         <section className="pt-32 pb-20 px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-5xl">
+            <div className="md:max-w-6xl">
               <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold font-spaceGrotesk mb-8 leading-tight">
                 Making biomanufacturing of complex proteins  <span className="text-green-400">SCALABLE</span> 
               </h1>
               <p className="text-2xl md:text-3xl md:text-4xl text-gray-400 mb-4 max-w-4xl leading-relaxed font-urbanist">
-                Starting with better <b className="text-white">horseradish peroxidase (HRP)</b>
+                Starting with better <b className="text-white">horseradish peroxidase (<span className='text-green-400'>HRP</span>),</b>
               </p>
-              <HeroText />
+              <div className="hidden md:block" >
+                <HeroText />
+              </div>
+              <div className='block md:hidden'>
+                <HeroTextMobile />
+              </div>
+              
               {/* 
               <div className="flex flex-wrap gap-4">
                 <button
@@ -202,7 +209,7 @@ function App() {
           </div>
         </section>
 
-        <section className="py-16 px-6 bg-gradient-to-b from-black to-gray-900">
+        <section className="py-12 px-6 bg-gradient-to-b from-black to-gray-900">
           <div className="max-w-7xl mx-auto">
             <div className="bg-green-400/10 border border-green-400/30 rounded-2xl p-12 text-center">
               <div className="inline-block mb-6">
