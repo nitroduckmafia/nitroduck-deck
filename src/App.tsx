@@ -251,13 +251,13 @@ function App() {
                 <div className="rounded-lg flex items-center justify-center relative overflow-hidden w-full max-w-[350px] mx-auto h-75">
                   <img src="images/Picture3.png" className=" w-full h-full object-cover "/>
                 </div>
-                <p className="text-xl leading-relaxed font-urbanist mt-8 ">
+                <p className="text-xl leading-relaxed font-urbanist mt-8 h-40">
                   Duckweed, the smallest and fastest-growing flower, carries an HRP transgene engineered for better performance in immunochemistry.
                  </p> 
-                <div className="mt-4">
+                <div className="mt-12">
                   <span className='flex flex-row items-center gap-4'>
-                    <img src="images/icons/icon1.webp" className="h-14 mt-4 object-contain "/>
-                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>PRXC1A transgene from horseradish </label>
+                    <img src="images/icons/icon1.webp" className="h-14 object-contain "/>
+                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk'>PRXC1A transgene from horseradish </label>
                   </span>
                   
                 </div>
@@ -267,13 +267,13 @@ function App() {
                 <div className=" rounded-lg flex items-center justify-center relative overflow-hidden w-full max-w-[350px] mx-auto h-75">
                   <img src="images/Picture4.png" className=" w-full h-full object-cover "/>
                 </div>
-                <p className="text-xl leading-relaxed font-urbanist mt-8 ">
+                <p className="text-xl leading-relaxed font-urbanist mt-8 h-40">
 Our autonomous cultivation system produces HRP-rich plant biomass from duckweed, which grows up to 100× faster than horseradish securing a steady and cost-efficient enzyme supply.                  </p>
 
-                  <div className="mt-4">
+                  <div className="mt-12">
                   <span className='flex flex-row items-center gap-4'>
-                    <img src="images/icons/icon3.webp" className="h-14 mt-4 object-contain "/>
-                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>100x faster accumulation of biomass </label>
+                    <img src="images/icons/icon3.webp" className="h-14 object-contain "/>
+                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk'>100x faster accumulation of biomass </label>
                   </span>
                   
 
@@ -284,13 +284,13 @@ Our autonomous cultivation system produces HRP-rich plant biomass from duckweed,
                 <div className="rounded-lg flex items-center justify-center relative overflow-hidden w-full max-w-[350px] mx-auto h-75">
                   <img src="images/Picture5.png" className=" w-full h-full object-cover "/>
                 </div>
-                <p className="text-xl leading-relaxed font-urbanist mt-8 ">
+                <p className="text-xl leading-relaxed font-urbanist mt-8 h-40">
 Secretion of HRP from duckweed biomass is induced, enabling streamlined downstream processing and resulting in clean (RZ 3), 100% single-isoform nitroHRP at the same cost as the native enzyme.                </p>
 
-                <div className="mt-4">
+                <div className="mt-12">
                   <span className='flex flex-row items-center gap-4'>
-                    <img src="images/icons/icon5.webp" className="h-14 mt-4 object-contain "/>
-                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>100% single isoform at &gt;RZ 3 purity </label>
+                    <img src="images/icons/icon5.webp" className="h-14 object-contain "/>
+                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk'>100% single isoform at &gt;RZ 3 purity </label>
                   </span>
                   
                 </div>
