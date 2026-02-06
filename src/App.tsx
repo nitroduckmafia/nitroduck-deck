@@ -4,6 +4,7 @@ import HeroText from './components/main_page/HeroText';
 import HeroText2 from './components/main_page/HeroText2';
 import HeroTextMobile from './components/main_page/HeroTextMobile';
 import ContactSection from './components/main_page/ContactSection';
+import HRPComparisonTable from './components/main_page/HRPComparisonTable';
 
 
 function App() {
@@ -300,6 +301,7 @@ Secretion of HRP from duckweed biomass is induced, enabling streamlined downstre
         </section>
 
 
+        <HRPComparisonTable />
          <ContactSection />       
 
 
