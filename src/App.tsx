@@ -181,11 +181,11 @@ function App() {
         <section className="pt-32 pb-20 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="md:max-w-6xl">
-              <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold font-spaceGrotesk mb-8 leading-tight">
-                Making biomanufacturing of complex proteins  <span className="text-green-400">SCALABLE</span> 
+              <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold font-spaceGrotesk mb-8 leading-tight">
+                Scaling the <br/>biology others <span className="text-green-400"> can’t </span> 
               </h1>
               <p className="text-2xl md:text-3xl md:text-4xl text-gray-400 mb-4 max-w-4xl leading-relaxed font-urbanist">
-                Starting with better <b className="text-white">horseradish peroxidase (<span className='text-green-400'>HRP</span>),</b>
+                Starting with the workhorse of IVD industry <b className="text-white">horseradish peroxidase (<span className='text-green-400'>HRP</span>),</b>
               </p>
               <div className="hidden md:block" >
                 <HeroText />
@@ -234,12 +234,11 @@ function App() {
                   cursor-pointer
                 "
               >
-                iGEM Grand Prize–winning plant-based technology
+                iGEM Grand Prize–winning plant recombinant  technology
               </a>
               </h2>
               <p className="text-xl text-gray-400 max-w-4xl mx-auto font-urbanist mt-8">
-                that maintains proper glycosylation and ensures a reliable supply of recombinant HRP
-              </p>
+              that maintains proper glycosylation and ensures a reliable supply of nitroHRP!              </p>
             </div>
           </div>
         </section>
@@ -253,16 +252,14 @@ function App() {
                   <img src="images/Picture3.png" className=" w-full h-full object-cover "/>
                 </div>
                 <p className="text-xl leading-relaxed font-urbanist mt-8 ">
-                    Duckweed, the smallest and fastest-growing higher plant, carries an HRP (single isoform VI) transgene engineered to your exact specifications (<a href='https://pubmed.ncbi.nlm.nih.gov/11505379/' target='_blank' className='text-green-400'>better thermal stability</a>, <a href='https://pubmed.ncbi.nlm.nih.gov/10835112/' target='_blank' className='text-green-400'>catalytic activity</a> or <a href='https://pubmed.ncbi.nlm.nih.gov/17482746/' target='_blank' className='text-green-400'>H202 tolerance</a>).                </p>
+                  Duckweed, the smallest and fastest-growing flower, carries an HRP transgene engineered for better performance in immunochemistry.
+                 </p> 
                 <div className="mt-4">
                   <span className='flex flex-row items-center gap-4'>
                     <img src="images/icons/icon1.webp" className="h-14 mt-4 object-contain "/>
                     <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>PRXC1A transgene from horseradish </label>
                   </span>
-                  <span className='flex flex-row items-center gap-4'>
-                    <img src="images/icons/icon2.webp" className="h-12 ml-1 mt-4 object-contain "/>
-                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>Customizable to meet your expectations </label>
-                  </span>
+                  
                 </div>
               </div>
 
@@ -271,18 +268,14 @@ function App() {
                   <img src="images/Picture4.png" className=" w-full h-full object-cover "/>
                 </div>
                 <p className="text-xl leading-relaxed font-urbanist mt-8 ">
-                  Our autonomous cultivation system produces HRP-rich plant biomass from duckweed, which grows up to 100× faster than horseradish and is unaffected by outdoor environmental fluctuations.
-                  </p>
+Our autonomous cultivation system produces HRP-rich plant biomass from duckweed, which grows up to 100× faster than horseradish securing a steady and cost-efficient enzyme supply.                  </p>
 
                   <div className="mt-4">
                   <span className='flex flex-row items-center gap-4'>
                     <img src="images/icons/icon3.webp" className="h-14 mt-4 object-contain "/>
                     <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>100x faster accumulation of biomass </label>
                   </span>
-                  <span className='flex flex-row items-center gap-4'>
-                    <img src="images/icons/icon4.webp" className="h-12 ml-1 mt-4 object-contain "/>
-                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>Unaffected by outdoor fluctuations </label>
-                  </span>
+                  
 
                 </div>
               </div>
@@ -292,18 +285,14 @@ function App() {
                   <img src="images/Picture5.png" className=" w-full h-full object-cover "/>
                 </div>
                 <p className="text-xl leading-relaxed font-urbanist mt-8 ">
-                  Secretion of HRP from duckweed biomass is induced, enabling streamlined downstream processing and resulting in clean (RZ 3), 100% single-isoform HRP (VI) at the same cost as the native enzyme.
-                </p>
+Secretion of HRP from duckweed biomass is induced, enabling streamlined downstream processing and resulting in clean (RZ 3), 100% single-isoform nitroHRP at the same cost as the native enzyme.                </p>
 
                 <div className="mt-4">
                   <span className='flex flex-row items-center gap-4'>
                     <img src="images/icons/icon5.webp" className="h-14 mt-4 object-contain "/>
                     <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>100% single isoform at &gt;RZ 3 purity </label>
                   </span>
-                  <span className='flex flex-row items-center gap-4'>
-                    <img src="images/icons/Vector.svg" className="h-10 ml-1 mt-4 object-contain "/>
-                    <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk mt-6'>At the same cost as native HRP </label>
-                  </span>
+                  
                 </div>
               </div>
             </div>
