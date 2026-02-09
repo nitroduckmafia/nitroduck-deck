@@ -181,12 +181,15 @@ function App() {
       <main>
         <section className="pt-32 pb-20 px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="md:max-w-6xl">
-              <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold font-spaceGrotesk mb-8 leading-tight">
-                Scaling the <br/>biology others <span className="text-green-400"> can’t </span> 
+            <div className="md:max-w-7xl">
+              <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold font-spaceGrotesk mb-8 leading-tight">
+                Scaling the biology <br/> others <span className="text-green-400"> can’t </span> 
               </h1>
               <p className="text-2xl md:text-3xl md:text-4xl text-gray-400 mb-4 max-w-4xl leading-relaxed font-urbanist">
-                Starting with the workhorse of IVD industry <b className="text-white">horseradish peroxidase (<span className='text-green-400'>HRP</span>),</b>
+                Starting with the workhorse of IVD industry 
+              </p>
+              <p className="text-3xl md:text-5xl text-gray-400 mb-4 max-w-4xl leading-relaxed font-urbanist">
+                <b className="text-white">horseradish peroxidase (<span className='text-green-400'>HRP</span>),</b>
               </p>
               <div className="hidden md:block" >
                 <HeroText />

@@ -55,7 +55,7 @@ const HRPComparisonTable = () => {
     }
   ];
 
-  const renderCellContent = (content: string, property: string, link?: string) => {
+  const renderCellContent = (content: string, property: string, link?: string, isNitroHRP: boolean = false) => {
     // Handle data citations with links
     if (property === 'data' && content && link) {
       return (
@@ -63,7 +63,7 @@ const HRPComparisonTable = () => {
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-green-400 hover:text-green-300 transition-colors duration-300 hover:underline"
+          className={`${isNitroHRP ? 'text-green-300' : 'text-green-400'} hover:text-green-200 transition-colors duration-300 hover:underline font-semibold`}
         >
           {content}
         </a>
@@ -83,19 +83,19 @@ const HRPComparisonTable = () => {
           <table className="w-full border-collapse min-w-[900px] rounded-3xl overflow-hidden">
             <thead>
               <tr className="border-b-2 border-green-400">
-                <th className="bg-gradient-to-br from-green-400/20 to-green-400/5 text-white text-left p-8 font-bold text-xl md:text-2xl font-spaceGrotesk">
+                <th className="bg-gradient-to-br from-green-400/20 to-green-400/5 text-white text-center p-8 font-bold text-xl md:text-2xl font-spaceGrotesk">
                   HRP version
                 </th>
-                <th className="bg-gradient-to-br from-green-400/15 to-green-400/5 text-white text-left p-8 font-bold text-xl md:text-2xl font-spaceGrotesk border-l border-green-400/30">
+                <th className="bg-gradient-to-br from-green-400/15 to-green-400/5 text-white text-center p-8 font-bold text-xl md:text-2xl font-spaceGrotesk border-l border-green-400/30">
                   native HRP
                 </th>
-                <th className="bg-gradient-to-br from-green-400/15 to-green-400/5 text-white text-left p-8 font-bold text-xl md:text-2xl font-spaceGrotesk border-l border-green-400/30">
+                <th className="bg-gradient-to-br from-green-400/25 to-green-400/10 text-green-300 text-center p-8 font-bold text-2xl md:text-3xl font-spaceGrotesk border-l border-green-400/50">
                   nitroHRP
                 </th>
-                <th className="bg-gradient-to-br from-green-400/15 to-green-400/5 text-white text-left p-8 font-bold text-xl md:text-2xl font-spaceGrotesk border-l border-green-400/30">
+                <th className="bg-gradient-to-br from-green-400/25 to-green-400/10 text-green-300 text-center p-8 font-bold text-2xl md:text-3xl font-spaceGrotesk border-l border-green-400/50">
                   nitroHRP thermostability
                 </th>
-                <th className="bg-gradient-to-br from-green-400/15 to-green-400/5 text-white text-left p-8 font-bold text-xl md:text-2xl font-spaceGrotesk border-l border-green-400/30">
+                <th className="bg-gradient-to-br from-green-400/25 to-green-400/10 text-green-300 text-center p-8 font-bold text-2xl md:text-3xl font-spaceGrotesk border-l border-green-400/50">
                   nitroHRP conjugation
                 </th>
               </tr>
@@ -106,20 +106,20 @@ const HRPComparisonTable = () => {
                   key={rowIdx} 
                   className={`group border-b border-green-400/20 hover:bg-green-400/10 transition-all duration-300 ${rowIdx === tableData.length - 2 ? '' : ''}`}
                 >
-                  <td className="bg-gradient-to-br from-gray-800/80 to-black/80 text-green-400 p-8 font-bold text-lg md:text-xl font-spaceGrotesk group-hover:text-green-300 transition-colors duration-300">
+                  <td className="bg-gradient-to-br from-gray-800/80 to-black/80 text-green-400 p-8 font-bold text-lg md:text-xl font-spaceGrotesk group-hover:text-green-300 transition-colors duration-300 text-center">
                     {row.property}
                   </td>
-                  <td className="bg-gradient-to-br from-gray-800/50 to-black/50 text-gray-200 p-8 text-lg md:text-xl font-urbanist border-l border-green-400/20 group-hover:border-green-400/40 transition-all duration-300">
+                  <td className="bg-gradient-to-br from-gray-800/50 to-black/50 text-gray-200 p-8 text-lg md:text-xl font-urbanist border-l border-green-400/20 group-hover:border-green-400/40 transition-all duration-300 text-center">
                     {renderCellContent(row.nativeHRP, row.property)}
                   </td>
-                  <td className="bg-gradient-to-br from-gray-800/50 to-black/50 text-gray-200 p-8 text-lg md:text-xl font-urbanist border-l border-green-400/20 group-hover:border-green-400/40 transition-all duration-300">
-                    {renderCellContent(row.nitroHRP, row.property)}
+                  <td className="bg-gradient-to-br from-green-400/10 to-green-400/5 text-green-300 p-8 text-xl md:text-2xl font-bold font-urbanist border-l border-green-400/40 group-hover:border-green-400/60 transition-all duration-300 text-center">
+                    {renderCellContent(row.nitroHRP, row.property, undefined, true)}
                   </td>
-                  <td className="bg-gradient-to-br from-gray-800/50 to-black/50 text-gray-200 p-8 text-lg md:text-xl font-urbanist border-l border-green-400/20 group-hover:border-green-400/40 transition-all duration-300">
-                    {renderCellContent(row.nitroHRPThermostability, row.property, (row as any).nitroHRPThermostabilityLink)}
+                  <td className="bg-gradient-to-br from-green-400/10 to-green-400/5 text-green-300 p-8 text-xl md:text-2xl font-bold font-urbanist border-l border-green-400/40 group-hover:border-green-400/60 transition-all duration-300 text-center">
+                    {renderCellContent(row.nitroHRPThermostability, row.property, (row as any).nitroHRPThermostabilityLink, true)}
                   </td>
-                  <td className="bg-gradient-to-br from-gray-800/50 to-black/50 text-gray-200 p-8 text-lg md:text-xl font-urbanist border-l border-green-400/20 group-hover:border-green-400/40 transition-all duration-300">
-                    {renderCellContent(row.nitroHRPConjugation, row.property, (row as any).nitroHRPConjugationLink)}
+                  <td className="bg-gradient-to-br from-green-400/10 to-green-400/5 text-green-300 p-8 text-xl md:text-2xl font-bold font-urbanist border-l border-green-400/40 group-hover:border-green-400/60 transition-all duration-300 text-center">
+                    {renderCellContent(row.nitroHRPConjugation, row.property, (row as any).nitroHRPConjugationLink, true)}
                   </td>
                 </tr>
               ))}
