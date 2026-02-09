@@ -275,7 +275,7 @@ function App() {
                 <p className="text-xl leading-relaxed font-urbanist mt-8 h-40">
 Our autonomous cultivation system produces HRP-rich plant biomass from duckweed, which grows up to 100× faster than horseradish securing a steady and cost-efficient enzyme supply.                  </p>
 
-                  <div className="mt-16 md:mt-12">
+                  <div className="mt-20 md:mt-12">
                   <span className='flex flex-row items-center gap-4'>
                     <img src="images/icons/icon3.webp" className="h-14 object-contain "/>
                     <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk'>100x faster accumulation of biomass </label>
@@ -292,7 +292,7 @@ Our autonomous cultivation system produces HRP-rich plant biomass from duckweed,
                 <p className="text-xl leading-relaxed font-urbanist mt-8 h-40">
 Secretion of HRP from duckweed biomass is induced, enabling streamlined downstream processing and resulting in clean (RZ 3), 100% single-isoform nitroHRP at the same cost as the native enzyme.                </p>
 
-                <div className="mt-16 md:mt-12">
+                <div className="mt-28  md:mt-12">
                   <span className='flex flex-row items-center gap-4'>
                     <img src="images/icons/icon5.webp" className="h-14 object-contain "/>
                     <label className='text-left text-large md:text-xl font-bold font-spaceGrotesk'>100% single isoform at &gt;RZ 3 purity </label>
