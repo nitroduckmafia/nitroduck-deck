@@ -35,16 +35,16 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-16 pt-16 bg-gradient-to-b from-gray-900 to-black">
-      <div className="p-10 md:p-0 md:max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl md:text-6xl font-bold font-spaceGrotesk mb-8">
+      <div className="p-4 md:p-0 md:max-w-5xl mx-auto text-center">
+        <h2 className="text-3xl md:text-6xl font-bold font-spaceGrotesk mb-8">
           Be among the first 21 companies to receive 100 000 units of   <span className="text-green-400">nitroHRP</span>  
         </h2>
-        <h2 className="text-2xl md:text-4xl font-bold font-spaceGrotesk mt-8 mb-8">
+        <h2 className="text-xl md:text-4xl font-bold font-spaceGrotesk mt-8 mb-8">
           tailored to your needs - <span className="text-green-400">free of charge</span>
         </h2>
         <p className="text-3xl text-gray-400 mb-12 font-urbanist"></p>
         
-        <div id="help" className='flex flex-col md:flex-row gap-4 mt-16 justify-center text-center md:text-left text-2xl text-gray-300 font-urbanist items-center md:items-start'>
+        <div id="help" className='flex flex-col md:flex-row gap-4 mt-16 justify-center text-center md:text-left  text-xl md:text-2xl  text-gray-300 font-urbanist items-center md:items-start'>
           <div>
             <p>Just tell us what would help your </p>
           </div>
@@ -112,7 +112,7 @@ export default function ContactSection() {
                 
                   className="px-4 py-3  bg-green-400 text-black text-xl font-semibold rounded-full hover:bg-green-300 transition-colors flex items-center justify-center gap-2"
                 >
-                  Book a call<Phone className="w-5 h-5" />
+                  Book a call<Phone className="hidden md:block w-5 h-5" />
                 </a>
                 <a
                   href="mailto:mafia@nitroduck.tech"
@@ -120,7 +120,7 @@ export default function ContactSection() {
                   
                   className="px-4 py-3  bg-green-400 text-black text-xl font-semibold rounded-full hover:bg-green-300 transition-colors flex items-center justify-center gap-2"
                 >
-                  Write us <Mail className="w-5 h-5" />
+                  Write us <Mail className="hidden md:block w-5 h-5" />
                 </a>
 
               </div>  
