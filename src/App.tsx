@@ -5,6 +5,7 @@ import HeroText2 from './components/main_page/HeroText2';
 import HeroTextMobile from './components/main_page/HeroTextMobile';
 import ContactSection from './components/main_page/ContactSection';
 import HRPComparisonTable from './components/main_page/HRPComparisonTable';
+import { Analytics } from "@vercel/analytics/next"
 
 
 function App() {
