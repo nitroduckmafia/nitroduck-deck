@@ -201,7 +201,7 @@ function App() {
 
             <p className="text-2xl md:text-3xl text-white max-w-3xl leading-snug font-semibold mb-12 font-urbanist">
               Just draw the reaction and try it.
-            </p>
+             </p>
 
             <a
               href={NITROCAT_URL}
