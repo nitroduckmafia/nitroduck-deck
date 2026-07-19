@@ -1,15 +1,198 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&display=swap');
+/* Nitroduck Identity System — webfonts (Literata · Work Sans · JetBrains Mono) */
+@import url('https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-spaceGrotesk;
-  }
+/* ============================================================
+   NITRODUCK IDENTITY SYSTEM — DESIGN TOKENS
+   Wired as CSS variables (verbatim from design-system/tokens/*).
+   ============================================================ */
+:root {
+  /* --- Color --- */
+  --nd-bg:          #202A17;  /* page ground */
+  --nd-bg-deep:     #171F0F;  /* proof band, footer */
+  --nd-bg-cover:    #14210D;  /* deepest — photo placeholder */
 
-  body {
-    @apply font-urbanist;
-  }
+  --nd-forest:      #40532F;
+  --nd-moss:        #2B3720;
+  --nd-green:       #4FA82F;
+  --nd-sage:        #9CA985;
+
+  --nd-gold:        #D2A24C;  /* THE accent — accent words, buttons, links */
+  --nd-gold-bright: #E7BE45;  /* eyebrows, link hover */
+  --nd-pollen:      #CDC98A;
+
+  --nd-cream:       #EDE7D2;  /* logo chip */
+  --nd-text:        #F0ECDB;  /* primary text on dark */
+  --nd-text-soft:   rgba(237, 231, 210, 0.72);
+  --nd-text-muted:  rgba(237, 231, 210, 0.5);
+  --nd-hairline:    rgba(237, 231, 210, 0.12);
+
+  --nd-paper:       #EFE7D2;
+  --nd-paper-2:     #E6DBBE;
+  --nd-ink:         #2B3720;
+  --nd-ink-soft:    #4A5238;
+
+  --nd-surface:     var(--nd-bg);  /* card bg */
+  --nd-accent:      var(--nd-gold);
+  --nd-accent-ink:  #202A17;       /* text on gold fill */
+
+  /* --- Typography --- */
+  --nd-font-display: 'Literata', Georgia, 'Times New Roman', serif;
+  --nd-font-body:    'Work Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --nd-font-mono:    'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
+
+  /* Type scale. Headline sizes clamp so desktop stays pixel-exact (56/41/30) and
+     shrinks gracefully on small screens — max value == the prototype's fixed px. */
+  --nd-fs-hero:     clamp(34px, 8vw, 56px);
+  --nd-fs-h1:       clamp(28px, 6vw, 41px);
+  --nd-fs-h2:       clamp(24px, 4.5vw, 30px);
+  --nd-fs-h3:       22px;
+  --nd-fs-body-lg:  18px;
+  --nd-fs-body:     16px;
+  --nd-fs-sm:       14px;
+  --nd-fs-eyebrow:  12px;
+
+  --nd-tracking-eyebrow: 0.14em;
+  --nd-lh-tight: 1.05;
+  --nd-lh-snug:  1.25;
+  --nd-lh-body:  1.6;
+
+  /* --- Spacing / shape / elevation --- */
+  --nd-gutter: 38px;          /* section side padding */
+  --nd-radius-pill: 999px;
+  --nd-radius-card: 9px;
+  --nd-radius-sm:   6px;
+
+  --nd-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.24);
+  --nd-shadow-md: 0 12px 38px rgba(0, 0, 0, 0.28);
+  --nd-shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.36);
+}
+
+/* ============================================================
+   BASE — dark "garden" ground
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--nd-bg);
+  color: var(--nd-text);
+  font-family: var(--nd-font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--nd-gold);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--nd-gold-bright);
+}
+
+/* Hero entrance — content fades up ~10px on load. */
+@keyframes ndrise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.nd-in {
+  opacity: 0;
+  animation: ndrise 0.6s ease both;
+}
+
+/* ============================================================
+   COMPONENT HOVER STATES (the prototype's style-hover, as CSS)
+   ============================================================ */
+.nd-navlink {
+  font-family: var(--nd-font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--nd-text-soft);
+  transition: color 0.2s;
+}
+.nd-navlink:hover {
+  color: var(--nd-gold);
+}
+
+.nd-iconbtn {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--nd-radius-pill);
+  border: 1.5px solid var(--nd-hairline);
+  color: var(--nd-text);
+  transition: border-color 0.2s, color 0.2s;
+}
+.nd-iconbtn:hover {
+  border-color: var(--nd-gold);
+  color: var(--nd-gold);
+}
+
+.nd-contact {
+  display: inline-flex;
+  color: var(--nd-text-muted);
+  transition: color 0.2s;
+}
+.nd-contact:hover {
+  color: var(--nd-gold);
+}
+
+.nd-card {
+  background: var(--nd-surface);
+  border: 1px solid var(--nd-hairline);
+  border-radius: var(--nd-radius-card);
+  padding: 16px;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.nd-card:hover {
+  border-color: var(--nd-gold);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   LAYOUT / RESPONSIVE
+   ============================================================ */
+.nd-hero {
+  position: relative;
+  overflow: hidden;
+  height: 560px;
+  display: flex;
+  align-items: center;
+  background: var(--nd-bg);
+}
+
+.nd-video-band {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+}
+
+.nd-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 44px;
+}
+
+@media (max-width: 860px) {
+  .nd-team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .nd-hero { height: auto; min-height: 480px; padding: 64px 0; }
+  .nd-video-band { height: 340px; }
+}
+
+@media (max-width: 600px) {
+  :root { --nd-gutter: 20px; }
+}
+
+@media (max-width: 560px) {
+  .nd-team-grid { grid-template-columns: 1fr; }
 }
