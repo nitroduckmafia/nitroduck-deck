@@ -1,3 +1,5 @@
+import { useMemo, useRef } from 'react';
+import type { PointerEvent as ReactPointerEvent } from 'react';
 import { Mail, Linkedin } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
 import { DuckweedVideo } from './components/main_page/DuckweedVideo';
@@ -40,7 +42,88 @@ const members = [
 
 const GUTTER_X = '0 var(--nd-gutter)';
 
+// ── Arcball (virtual trackball) ─────────────────────────────────────────────
+// Drag anywhere in the hero to tumble the flock in 3D: through the centre pitches
+// and yaws it in depth, an arc near the edge rolls it. Orientation is kept as a
+// quaternion so rotations about every axis compose correctly, in any order.
+type Vec3 = [number, number, number];
+type Quat = [number, number, number, number]; // x, y, z, w
+const qNorm = (q: Quat): Quat => {
+  const l = Math.hypot(q[0], q[1], q[2], q[3]) || 1;
+  return [q[0] / l, q[1] / l, q[2] / l, q[3] / l];
+};
+const qMul = (a: Quat, b: Quat): Quat => [
+  a[3] * b[0] + a[0] * b[3] + a[1] * b[2] - a[2] * b[1],
+  a[3] * b[1] - a[0] * b[2] + a[1] * b[3] + a[2] * b[0],
+  a[3] * b[2] + a[0] * b[1] - a[1] * b[0] + a[2] * b[3],
+  a[3] * b[3] - a[0] * b[0] - a[1] * b[1] - a[2] * b[2],
+];
+// Shortest-arc rotation carrying unit vector a onto unit vector b.
+const qBetween = (a: Vec3, b: Vec3): Quat =>
+  qNorm([
+    a[1] * b[2] - a[2] * b[1],
+    a[2] * b[0] - a[0] * b[2],
+    a[0] * b[1] - a[1] * b[0],
+    1 + a[0] * b[0] + a[1] * b[1] + a[2] * b[2],
+  ]);
+// Map a pointer onto the virtual sphere (falls to the rim outside the unit circle).
+const arcballVec = (clientX: number, clientY: number, rect: DOMRect): Vec3 => {
+  const rad = Math.min(rect.width, rect.height) / 2;
+  const x = (clientX - (rect.left + rect.width / 2)) / rad;
+  const y = -(clientY - (rect.top + rect.height / 2)) / rad; // screen-y is down; flip to math-y
+  const d2 = x * x + y * y;
+  if (d2 <= 1) return [x, y, Math.sqrt(1 - d2)];
+  const inv = 1 / Math.sqrt(d2);
+  return [x * inv, y * inv, 0];
+};
+
 function App() {
+  // Grab-to-tumble pollen: press anywhere in the hero and drag to rotate the whole
+  // 3D flock (all axes) — and it stays where you let go. Orientation lives in a ref
+  // as a quaternion; the canvas reads it each frame, so a drag never re-renders React.
+  const heroRef = useRef<HTMLElement>(null);
+  const qRef = useRef<Quat>([0, 0, 0, 1]); // current orientation
+  const qStartRef = useRef<Quat>([0, 0, 0, 1]); // orientation at grab
+  const startVecRef = useRef<Vec3>([0, 0, 1]); // sphere point under the cursor at grab
+  const draggingRef = useRef(false);
+
+  const reducedMotion = useMemo(
+    () =>
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    []
+  );
+  // Fewer grains on small screens (lighter canvas loop).
+  const pollenDensity = useMemo(
+    () => (typeof window !== 'undefined' && window.innerWidth < 768 ? 0.62 : 1.15),
+    []
+  );
+
+  const grabPollen = (e: ReactPointerEvent<HTMLElement>) => {
+    // Touch keeps native scrolling; steering is a mouse/pen gesture. Real controls win.
+    if (reducedMotion || e.pointerType === 'touch') return;
+    if ((e.target as HTMLElement).closest('a, button')) return;
+    draggingRef.current = true;
+    qStartRef.current = qRef.current;
+    startVecRef.current = arcballVec(e.clientX, e.clientY, e.currentTarget.getBoundingClientRect());
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+    if (heroRef.current) heroRef.current.style.cursor = 'grabbing';
+  };
+  const turnPollen = (e: ReactPointerEvent<HTMLElement>) => {
+    if (!draggingRef.current) return;
+    const cur = arcballVec(e.clientX, e.clientY, e.currentTarget.getBoundingClientRect());
+    // Total rotation from grab point to now, composed onto the grab orientation
+    // (world-frame pre-multiply) so the point under the cursor tracks the cursor.
+    // The canvas render loop picks this up on the next frame.
+    qRef.current = qNorm(qMul(qBetween(startVecRef.current, cur), qStartRef.current));
+  };
+  const releasePollen = (e: ReactPointerEvent<HTMLElement>) => {
+    if (!draggingRef.current) return;
+    draggingRef.current = false;
+    e.currentTarget.releasePointerCapture?.(e.pointerId);
+    if (heroRef.current) heroRef.current.style.cursor = 'grab';
+  };
+
   return (
     <div
       style={{
@@ -86,8 +169,26 @@ function App() {
 
       <main>
         {/* ── Hero ─────────────────────────────────────────────── */}
-        <section className="nd-hero">
-          <PollenField width={1200} height={560} petals={0} exine={true} />
+        <section
+          ref={heroRef}
+          className="nd-hero"
+          onPointerDown={grabPollen}
+          onPointerMove={turnPollen}
+          onPointerUp={releasePollen}
+          onPointerCancel={releasePollen}
+          style={{
+            cursor: reducedMotion ? 'default' : 'grab',
+            userSelect: 'none',
+            WebkitUserSelect: 'none',
+          }}
+        >
+          {/* Volumetric pollen flock (canvas). Fills the hero; its 3D orientation is
+              driven by the arcball handlers above via qRef, read on each frame. */}
+          <PollenField
+            orientationRef={qRef}
+            reducedMotion={reducedMotion}
+            density={pollenDensity}
+          />
           {/* Left protection scrim — keeps the headline legible over the motif. */}
           <div
             aria-hidden="true"
@@ -117,8 +218,8 @@ function App() {
           </div>
         </section>
 
-        {/* ── Proof band (video + CTA) ─────────────────────────── */}
-        <section style={{ background: 'var(--nd-bg-deep)' }}>
+        {/* ── Proof band (video + CTA) — one full window ───────── */}
+        <section className="nd-proof">
           {/* 3a — video banner */}
           <div className="nd-video-band">
             <div style={{ position: 'absolute', inset: 0 }}>
@@ -142,7 +243,7 @@ function App() {
                 left: 0,
                 right: 0,
                 top: 0,
-                height: 160,
+                height: 300,
                 zIndex: 1,
                 background: 'linear-gradient(to bottom, var(--nd-bg), transparent)',
               }}
@@ -155,7 +256,7 @@ function App() {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                height: 190,
+                height: 360,
                 zIndex: 1,
                 background: 'linear-gradient(to top, var(--nd-bg-deep), transparent)',
               }}
@@ -195,7 +296,7 @@ function App() {
             style={{
               maxWidth: 1120,
               margin: '0 auto',
-              padding: '56px var(--nd-gutter) 4px',
+              padding: '56px var(--nd-gutter) 72px',
               textAlign: 'center',
             }}
           >
@@ -220,15 +321,7 @@ function App() {
         </section>
 
         {/* ── Team — "Duckweed Mafia" ──────────────────────────── */}
-        <section
-          id="team"
-          style={{
-            padding: '96px 0',
-            scrollMarginTop: 80,
-            background:
-              'linear-gradient(to bottom, var(--nd-bg-deep) 0, var(--nd-bg) 190px, var(--nd-bg) calc(100% - 200px), var(--nd-bg-deep) 100%)',
-          }}
-        >
+        <section id="team" className="nd-team">
           <div style={{ maxWidth: 1120, margin: '0 auto', padding: GUTTER_X }}>
             <Eyebrow>Sincerely,</Eyebrow>
             <div

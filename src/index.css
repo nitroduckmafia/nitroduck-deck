@@ -138,6 +138,10 @@ a:hover {
   display: inline-flex;
   color: var(--nd-text-muted);
   transition: color 0.2s;
+  /* Enlarged tap target: 18px glyph stays put; padding + negative margin grow the
+     hit area to 32×44px without shifting layout (7px+7px exactly fills the 14px gap). */
+  padding: 13px 7px;
+  margin: -13px -7px;
 }
 .nd-contact:hover {
   color: var(--nd-gold);
@@ -158,19 +162,43 @@ a:hover {
 /* ============================================================
    LAYOUT / RESPONSIVE
    ============================================================ */
+/* Full-window rhythm: hero, proof (video + CTA), and team each fill one viewport
+   below the 64px sticky nav. svh declarations override vh where supported. */
 .nd-hero {
   position: relative;
   overflow: hidden;
-  height: 560px;
+  height: calc(100vh - 64px);
+  height: calc(100svh - 64px);
+  min-height: 480px;
   display: flex;
   align-items: center;
   background: var(--nd-bg);
 }
 
+.nd-proof {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 64px);
+  min-height: calc(100svh - 64px);
+  background: var(--nd-bg-deep);
+}
+
 .nd-video-band {
   position: relative;
-  height: 480px;
+  flex: 1 1 auto;
+  min-height: 580px;
   overflow: hidden;
+}
+
+.nd-team {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+  min-height: calc(100svh - 64px);
+  padding: 96px 0;
+  scroll-margin-top: 64px;
+  background: linear-gradient(to bottom, var(--nd-bg-deep) 0, var(--nd-bg) 260px, var(--nd-bg) calc(100% - 280px), var(--nd-bg-deep) 100%);
 }
 
 .nd-team-grid {
@@ -185,8 +213,8 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-  .nd-hero { height: auto; min-height: 480px; padding: 64px 0; }
-  .nd-video-band { height: 340px; }
+  .nd-hero { min-height: 420px; }
+  .nd-video-band { min-height: 400px; }
 }
 
 @media (max-width: 600px) {
