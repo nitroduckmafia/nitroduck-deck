@@ -9,7 +9,7 @@ import { Eyebrow } from './components/ui/Eyebrow';
 import { Button } from './components/ui/Button';
 import { Logo } from './components/ui/Logo';
 
-const BOOK_URL = 'https://calendar.app.google/waauJ9rnj6JhZmSt9';
+const BOOK_URL = 'https://calendar.app.google/uST8sneTG4zzitcH9';
 const MAIL_URL = 'mailto:mafia@nitroduck.tech';
 const LINKEDIN_URL = 'https://www.linkedin.com/company/nitroduck-tech/';
 const MARK_SRC = '/images/nitroduck_5.png';
