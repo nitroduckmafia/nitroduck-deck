@@ -20,6 +20,7 @@ const members = [
   {
     name: 'Matej Zámečník',
     role: 'Co-Founder & CEO',
+    focus: 'Breeding & business development',
     img: '/images/team/matej.jpg',
     email: 'matej@nitroduck.tech',
     linkedin: 'https://www.linkedin.com/in/matejzamecnik/',
@@ -27,18 +28,68 @@ const members = [
   {
     name: 'Matúš Grieš',
     role: 'Co-Founder & CTO',
+    focus: 'Nanotechnology & computational biology',
     img: '/images/team/jonas.jpg',
     email: 'matus@nitroduck.tech',
     linkedin: 'https://www.linkedin.com/in/mat%C3%BA%C5%A1-grie%C5%A1-45b655202/',
   },
   {
-    name: 'Miroslav Rosputinský',
+    name: 'Miro Rosputinský',
     role: 'Co-Founder & CSO',
+    focus: 'Synthetic biology & gene editing',
     img: '/images/team/miro.jpg',
     email: 'miro@nitroduck.tech',
     linkedin: 'https://www.linkedin.com/in/miroslav-rosputinsk%C3%BD-23b759307/',
   },
 ];
+
+// Advisors. Without an `img`, the card shows the advisor's initials.
+// `imgPosition` keeps the face centred when a landscape photo is cropped square.
+// `highlight` is shown below the role in bold gold.
+const advisors: {
+  name: string;
+  role: string;
+  highlight: string;
+  img?: string;
+  imgPosition?: string;
+  linkedin?: string;
+}[] = [
+  {
+    name: 'Dan Voytas',
+    role: 'Professor at University of Minnesota',
+    highlight: 'Plant gene editing pioneer',
+    img: '/images/team/voytas.png',
+    imgPosition: '88% center',
+    linkedin: 'https://www.linkedin.com/in/dan-voytas-84718319/',
+  },
+  {
+    name: 'David Honys',
+    role: 'Professor at Czech Academy of Sciences',
+    highlight: 'World class pollen biology expert',
+    img: '/images/team/honys.webp',
+    imgPosition: '100% center',
+    linkedin: 'https://www.linkedin.com/in/david-honys-10a93a20/',
+  },
+];
+
+// Labs the founders worked in, and their institutions' logos (public/images/institutions/).
+const LABS = 'Boisivon, Aharoni, Fajkus, Hejátko, Demko, Dvořák, and Sotiriou';
+const institutions = [
+  { name: 'CEITEC, Central European Institute of Technology', img: '/images/institutions/ceitec.png' },
+  { name: 'Masaryk University', img: '/images/institutions/masaryk.svg' },
+  { name: 'Weizmann Institute of Science', img: '/images/institutions/weizmann.svg' },
+  { name: 'Comenius University Bratislava', img: '/images/institutions/comenius.png' },
+  { name: 'Karolinska Institutet', img: '/images/institutions/karolinska.svg' },
+];
+
+// Role text always reserves two lines so the gold lines below line up across all cards.
+const ROLE_STYLE = {
+  fontSize: 13,
+  lineHeight: '20px',
+  minHeight: 40,
+  color: 'var(--nd-text-soft)',
+  marginTop: 4,
+};
 
 const GUTTER_X = '0 var(--nd-gutter)';
 
@@ -324,85 +375,184 @@ function App() {
         <section id="team" className="nd-team">
           <div style={{ maxWidth: 1120, margin: '0 auto', padding: GUTTER_X }}>
             <Eyebrow>Sincerely,</Eyebrow>
-            <div
-              style={{
-                marginTop: 8,
-                display: 'flex',
-                alignItems: 'center',
-                gap: 16,
-                flexWrap: 'wrap',
-              }}
-            >
+            <div style={{ marginTop: 8 }}>
               <Headline level="h1" pre="Duckweed " accent="Mafia" />
-              <a
-                className="nd-iconbtn"
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Nitroduck on LinkedIn"
-              >
-                <Linkedin size={18} strokeWidth={1.8} />
-              </a>
             </div>
 
-            <div className="nd-team-grid">
-              {members.map((member) => (
-                <div key={member.name} className="nd-card">
-                  <div
-                    style={{
-                      width: '100%',
-                      aspectRatio: '1',
-                      borderRadius: 'var(--nd-radius-sm)',
-                      overflow: 'hidden',
-                      background: 'var(--nd-bg-cover)',
-                    }}
-                  >
-                    <img
-                      src={member.img}
-                      alt={member.name}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        objectPosition: 'top',
-                        display: 'block',
-                      }}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: 'var(--nd-font-body)',
-                      fontWeight: 600,
-                      fontSize: 17,
-                      color: 'var(--nd-text)',
-                      marginTop: 14,
-                    }}
-                  >
-                    {member.name}
-                  </div>
-                  <div style={{ fontSize: 13, color: 'var(--nd-text-soft)', marginTop: 4 }}>
-                    {member.role}
-                  </div>
-                  <div style={{ display: 'flex', gap: 14, marginTop: 16 }}>
-                    <a
-                      className="nd-contact"
-                      href={`mailto:${member.email}`}
-                      aria-label={`Email ${member.name}`}
-                    >
-                      <Mail size={18} strokeWidth={1.8} />
-                    </a>
-                    <a
-                      className="nd-contact"
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${member.name} on LinkedIn`}
-                    >
-                      <Linkedin size={18} strokeWidth={1.8} />
-                    </a>
-                  </div>
+            <div className="nd-people">
+              <div className="nd-people-group nd-people-founders">
+                <Eyebrow>Founders</Eyebrow>
+                <div className="nd-team-grid">
+                  {members.map((member) => (
+                    <div key={member.name} className="nd-card">
+                      <div
+                        style={{
+                          width: '100%',
+                          aspectRatio: '1',
+                          borderRadius: 'var(--nd-radius-sm)',
+                          overflow: 'hidden',
+                          background: 'var(--nd-bg-cover)',
+                        }}
+                      >
+                        <img
+                          src={member.img}
+                          alt={member.name}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            objectPosition: 'top',
+                            display: 'block',
+                          }}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          fontFamily: 'var(--nd-font-body)',
+                          fontWeight: 600,
+                          fontSize: 17,
+                          color: 'var(--nd-text)',
+                          marginTop: 14,
+                        }}
+                      >
+                        {member.name}
+                      </div>
+                      <div style={ROLE_STYLE}>
+                        {member.role}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: 13,
+                          fontWeight: 600,
+                          color: 'var(--nd-gold)',
+                          marginTop: 18,
+                        }}
+                      >
+                        {member.focus}
+                      </div>
+                      <div style={{ display: 'flex', gap: 14, marginTop: 16 }}>
+                        <a
+                          className="nd-contact"
+                          href={`mailto:${member.email}`}
+                          aria-label={`Email ${member.name}`}
+                        >
+                          <Mail size={18} strokeWidth={1.8} />
+                        </a>
+                        <a
+                          className="nd-contact"
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name} on LinkedIn`}
+                        >
+                          <Linkedin size={18} strokeWidth={1.8} />
+                        </a>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              <div className="nd-people-group nd-people-advisors">
+                <Eyebrow>Advisors</Eyebrow>
+                <div className="nd-team-grid">
+                  {advisors.map((advisor) => (
+                    <div key={advisor.name} className="nd-card">
+                      <div
+                        style={{
+                          width: '100%',
+                          aspectRatio: '1',
+                          borderRadius: 'var(--nd-radius-sm)',
+                          overflow: 'hidden',
+                          background: 'var(--nd-bg-cover)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        {advisor.img ? (
+                          <img
+                            src={advisor.img}
+                            alt={advisor.name}
+                            style={{
+                              width: '100%',
+                              height: '100%',
+                              objectFit: 'cover',
+                              objectPosition: advisor.imgPosition ?? 'top',
+                              display: 'block',
+                            }}
+                          />
+                        ) : (
+                          <span
+                            aria-hidden="true"
+                            style={{
+                              fontFamily: 'var(--nd-font-mono)',
+                              fontSize: 40,
+                              letterSpacing: '.06em',
+                              color: 'var(--nd-text-muted)',
+                            }}
+                          >
+                            {advisor.name
+                              .split(' ')
+                              .map((part) => part[0])
+                              .join('')}
+                          </span>
+                        )}
+                      </div>
+                      <div
+                        style={{
+                          fontFamily: 'var(--nd-font-body)',
+                          fontWeight: 600,
+                          fontSize: 17,
+                          color: 'var(--nd-text)',
+                          marginTop: 14,
+                        }}
+                      >
+                        {advisor.name}
+                      </div>
+                      <div style={ROLE_STYLE}>
+                        {advisor.role}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: 13,
+                          fontWeight: 600,
+                          color: 'var(--nd-gold)',
+                          marginTop: 18,
+                        }}
+                      >
+                        {advisor.highlight}
+                      </div>
+                      {advisor.linkedin && (
+                        <div style={{ display: 'flex', gap: 14, marginTop: 16 }}>
+                          <a
+                            className="nd-contact"
+                            href={advisor.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${advisor.name} on LinkedIn`}
+                          >
+                            <Linkedin size={18} strokeWidth={1.8} />
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="nd-labs">
+              <div style={{ fontSize: 13, color: 'var(--nd-text-soft)' }}>
+                Worked in the {LABS} labs.
+              </div>
+              <div className="nd-labs-logos">
+                {institutions.map((inst) => (
+                  <div key={inst.name} className="nd-labs-logo">
+                    <img src={inst.img} alt={inst.name} title={inst.name} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -446,6 +596,8 @@ function App() {
             borderTop: '1px solid var(--nd-hairline)',
             display: 'flex',
             justifyContent: 'space-between',
+            gap: 16,
+            flexWrap: 'wrap',
             fontFamily: 'var(--nd-font-mono)',
             fontSize: 11,
             letterSpacing: '.06em',
@@ -453,6 +605,11 @@ function App() {
           }}
         >
           <span>© 2026 Nitroduck, Inc.</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+            Backed by
+            <img src="/images/yc.svg" alt="" width={24} height={24} style={{ display: 'block' }} />
+            Combinator
+          </span>
         </div>
       </footer>
 
