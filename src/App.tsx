@@ -10,6 +10,8 @@ import { Button } from './components/ui/Button';
 import { Logo } from './components/ui/Logo';
 
 const BOOK_URL = 'https://calendar.app.google/uST8sneTG4zzitcH9';
+// Booking link hidden temporarily after launch spam. Set to true to bring it back.
+const SHOW_BOOKING = false;
 const MAIL_URL = 'mailto:mafia@nitroduck.tech';
 const LINKEDIN_URL = 'https://www.linkedin.com/company/nitroduck-tech/';
 const MARK_SRC = '/images/nitroduck_5.png';
@@ -211,9 +213,13 @@ function App() {
             <a href="#team" className="nd-navlink">
               Team
             </a>
-            <Button href={BOOK_URL} target="_blank" rel="noopener noreferrer">
-              Book a call
-            </Button>
+            {SHOW_BOOKING ? (
+              <Button href={BOOK_URL} target="_blank" rel="noopener noreferrer">
+                Book a call
+              </Button>
+            ) : (
+              <Button href={MAIL_URL}>Email us</Button>
+            )}
           </nav>
         </div>
       </header>
@@ -361,10 +367,12 @@ function App() {
                 flexWrap: 'wrap',
               }}
             >
-              <Button size="lg" href={BOOK_URL} target="_blank" rel="noopener noreferrer">
-                Book a call
-              </Button>
-              <Button variant="ghost" size="lg" href={MAIL_URL}>
+              {SHOW_BOOKING && (
+                <Button size="lg" href={BOOK_URL} target="_blank" rel="noopener noreferrer">
+                  Book a call
+                </Button>
+              )}
+              <Button variant={SHOW_BOOKING ? 'ghost' : undefined} size="lg" href={MAIL_URL}>
                 Email us
               </Button>
             </div>
