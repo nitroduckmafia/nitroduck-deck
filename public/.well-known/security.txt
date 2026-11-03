@@ -1,0 +1,8 @@
+# Nitroduck security contact (RFC 9116)
+# To report a security issue, email the address below with the affected URL
+# or system, steps to reproduce and the impact.
+# We do not run a bug bounty program and do not pay for reports.
+Contact: mailto:mafia@nitroduck.tech
+Expires: 2027-10-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://nitroduck.tech/.well-known/security.txt
